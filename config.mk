@@ -1,5 +1,5 @@
 # paths
-PREFIX ?= /usr/local
+PREFIX ?= /opt/local
 
 # where are the sources of irssi?
 IRSSI_INCLUDE ?= ${PREFIX}/include/irssi
@@ -23,10 +23,11 @@ LIBS =	${LIB_LIBS}
 
 # flags
 CFLAGS += -fPIC -DUOFF_T_LONG
+CFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
 LDFLAGS += -shared
 
 # debug
 #CFLAGS += -std=c99 -W -g -Wall -Wno-unused-parameter
 
 # compiler and linker
-CC ?= cc
+CC ?= gcc
