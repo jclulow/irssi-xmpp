@@ -26,6 +26,13 @@ CFLAGS += -fPIC -DUOFF_T_LONG
 CFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
 LDFLAGS += -shared
 
+#
+# We want to link against libloudmouth.so, which is generally shipped two
+# directories up from us: i.e., we're in "PREFIX/lib/irssi/modules", and
+# loudmouth is in "PREFIX/lib".
+#
+LDFLAGS += -Wl,-R'$$ORIGIN' -Wl,-R'$$ORIGIN/../../'
+
 # debug
 #CFLAGS += -std=c99 -W -g -Wall -Wno-unused-parameter
 

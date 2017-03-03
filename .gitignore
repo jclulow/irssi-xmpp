@@ -1,3 +1,6 @@
 irssi-0.*
 *.o
 *.so
+cscope.files
+cscope.out
+proto/
